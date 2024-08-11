@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "Rubik-Regular";
+  src: url("./assets/fonts/static/Rubik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Rubik-Regular", sans-serif;
+  background-repeat:none;
+  margin:0;
+  padding:0;
+}
+
+body.dark{
+  background-color:#313E51;
+}
+
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: white;
+}
