@@ -1,6 +1,6 @@
-import QuizNavbar from '../components/QuizAnswering/QuizNavbar'
 import { usePageStore, useQuizStore } from '../store/store';
 import { dynamicIconBg, dynamicTagIcon } from '../store/dynamic';
+import Navbar from '../components/Welcome/Navbar';
 
 const CompletePage = () => {
   const userScore = useQuizStore(state=>state.userScore)
@@ -17,7 +17,7 @@ const CompletePage = () => {
   
   return (
     <div>
-      <QuizNavbar/>
+      <Navbar tag={selectedQuizTag}/>
 
       <div className="grid grid-cols-12 md:gap-10 pt-10 lg:pt-28 px-6 md:px-20 lg:px-52">
         <div className='col-span-12 md:col-span-5 lg:col-span-6'>

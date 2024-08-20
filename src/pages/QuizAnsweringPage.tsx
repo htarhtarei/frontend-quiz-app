@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import ProgressBar from '../components/QuizAnswering/ProgressBar';
-import QuizNavbar from '../components/QuizAnswering/QuizNavbar';
 import { DUMMY_DATA } from '../data';
 import { dynamicAbcdTag, shuffleOptionsArray, shuffleQuestionArray } from '../store/dynamic';
 import { usePageStore, useQuizStore } from '../store/store';
 import { questionType } from '../store/type';
+import Navbar from '../components/Welcome/Navbar';
 
 const QuizAnsweringPage = () => {
   const [isSubmit , setIsSubmit] = useState<boolean>(false);
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
-  const { currentRound, setCurrentRound, selectedQuizTag, setUserScore } = useQuizStore((state) => state);
+  const { currentRound, setCurrentRound, setUserScore ,selectedQuizTag } = useQuizStore((state) => state);
   const userScore = useQuizStore(state => state.userScore);
   const setCurrentPage = usePageStore(state => state.setCurrentPage);
 
@@ -84,14 +84,14 @@ const QuizAnsweringPage = () => {
 
   return (
     <div className="">
-      <QuizNavbar />
+      <Navbar tag ={selectedQuizTag} />
       <div className="pt-10 px-8 md:px-12 lg:px-48">
         <p className="text-[.9rem] pb-3 italic text-slate-500">
           Question {currentRound + 1} out of {maxRound}
         </p>
         <h5 className="py-4 dark:text-white">{currentQuestion?.question}</h5>
 
-        <ProgressBar value={currentRound + 1} max={maxRound} />
+        <ProgressBar value={currentRound + 1} max={maxRound + 1} />
 
         <div className="pt-10">
           <ul className="grid grid-cols-12 gap-4 cursor-pointer">

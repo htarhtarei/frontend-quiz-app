@@ -52,6 +52,7 @@ export const dynamicTagIcon = (value:string)=>{
 export const shuffleQuestionArray = (array:questionType[] )=>{
   return array.sort(() => Math.random() - 0.5);
 }
+
 export const shuffleOptionsArray = (array:string[] )=>{
   return array.sort(() => Math.random() - 0.5);
 }
