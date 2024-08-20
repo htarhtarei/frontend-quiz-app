@@ -6,13 +6,13 @@ import lightMoonIcon from "../../assets/images/icon-moon-light.svg";
 import darkMoonIcon from "../../assets/images/icon-moon-dark.svg";
 
 const ThemeSwitcher = () => {
-    const [dark, setDark] = useState(false)
-
+  
     const [sunIcon, setSunIcon] = useState(lightSunIcon);
     const [moonIcon, setMoonIcon] = useState(lightMoonIcon);
-
+    
     const theme = useThemeStore(state=>state.theme)
     const updateTheme = useThemeStore(state => state.setTheme)
+    const [dark, setDark] = useState(localStorage.getItem("theme") === "dark" ? true : false)
 
     useEffect(() => {
       if (theme === "dark") {
@@ -22,16 +22,16 @@ const ThemeSwitcher = () => {
         setSunIcon(darkSunIcon);
         setMoonIcon(darkMoonIcon);
       }
-    }, [theme]);
+    }, [theme]);    
 
     const changeHandler = () => {
       setDark(!dark);
     }
 
     useEffect(()=>{
-        localStorage.setItem("theme", dark ? "light" :"dark" );
-        updateTheme(dark ? "dark" : "light")   
-    },[dark])
+      localStorage.setItem("theme", dark ? "dark" : "light" );
+      updateTheme(dark ? "dark" : "light")  
+    },[dark,theme])
     
     useEffect(() => {
       const modeBtn = document.querySelector("#toggleB");
