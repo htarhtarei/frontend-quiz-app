@@ -2,6 +2,7 @@ import htmlIcon from "../assets/images/icon-html.svg"
 import cssIcon from "../assets/images/icon-css.svg"
 import jsIcon from "../assets/images/icon-js.svg"
 import accesslIcon from "../assets/images/icon-accessibility.svg"
+import { questionType } from "./type";
 
 export const dynamicIconBg = (name: string) => {
     switch (name) {
@@ -47,3 +48,11 @@ export const dynamicTagIcon = (value:string)=>{
       break;
   }
 }
+
+export const shuffleQuestionArray = (array:questionType[] )=>{
+  return array.sort(() => Math.random() - 0.5);
+}
+export const shuffleOptionsArray = (array:string[] )=>{
+  return array.sort(() => Math.random() - 0.5);
+}
+
